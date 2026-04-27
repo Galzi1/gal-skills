@@ -1,0 +1,30 @@
+{
+  "skill_name": "read-2col-pdf",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Please read and summarize the paper at C:\\Users\\galzi\\Downloads\\2602.11988v1.pdf. Give me: the title, authors, abstract, and a 3-5 bullet point summary of the main contributions. Make sure you read the columns in the correct order.",
+      "expected_output": "A structured summary with correct title/authors, accurate abstract, and contributions drawn from left-then-right column reading - not garbled interleaved text from both columns at once.",
+      "files": [],
+      "assertions": [
+        "The output includes the paper title",
+        "The output includes author names",
+        "The abstract is reproduced coherently (no mid-sentence jumps to unrelated topics)",
+        "The contributions/bullet points are coherent sentences, not garbled mixes of two column streams",
+        "The output does not contain obvious column-interleaving artifacts (e.g., a sentence that jumps topic mid-phrase due to reading across columns)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have a two-column research paper at C:\\Users\\galzi\\Downloads\\2602.11988v1.pdf. Extract and reproduce the Introduction section verbatim (or near-verbatim). The text should read naturally from start to finish.",
+      "expected_output": "The Introduction section text flowing naturally, reading the left column fully before the right column, with no interleaving artifacts. Text should be coherent paragraphs.",
+      "files": [],
+      "assertions": [
+        "Output contains an Introduction section",
+        "The extracted text reads as coherent paragraphs (no topic-jumping mid-sentence)",
+        "The text length is substantial (introduction of academic paper should be at least 200 words)",
+        "No obvious reading-order error: a sentence from the right column does not appear before its left-column predecessor"
+      ]
+    }
+  ]
+}
